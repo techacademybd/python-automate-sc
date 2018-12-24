@@ -7,6 +7,8 @@ imort smtplib
 ```
 
 Gmail messages
+
+
 	- 1.py 
 		This script sends an email with a message to a user
 			* Destination email
