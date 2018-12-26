@@ -30,9 +30,7 @@ def get_email():
     # ids is a space separated string
     id_list = ids.split()
     # get the latest email in the inbox stack
-    
     latest_email_id = id_list[-1]
-    
     # get raw email
     _, data = mail.fetch(latest_email_id, "(RFC822)")
     raw_email = data[0][1]    
@@ -40,13 +38,11 @@ def get_email():
     email_message = email.message_from_string(decoded_raw_email)
     # convert raw email to text
     message = get_first_text_block(email_message)
-    # print(str(email.utils.parseaddr(email_message['From'])[0]))
     name = str(email.utils.parseaddr(email_message['From'])[0])
     return name, message
 
 
 name, message = get_email()
-#print(name, message)
 
 read_file = open("Read_Email.txt", "w")
 read_file.write("Sender: " + name)
